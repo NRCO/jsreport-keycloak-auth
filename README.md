@@ -46,6 +46,7 @@ npm install https://github.com/NRCO/jsreport-keycloak-auth.git
   "/favicon.ico",
   "/api/extensions",
   "/odata/settings",
-  "/"
+  "/",
+  "auth/config"
 ]
 ```
