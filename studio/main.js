@@ -56,23 +56,27 @@
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
-	var keycloak = new _keycloakJs2.default(window.Studio.extensions['keycloak-auth']['client-config']);
+	var init = function init(keycloak) {
+	  keycloak.onAuthSuccess = function () {
+	    _jsreportStudio2.default.setRequestHeader('Authorization', 'Bearer ' + keycloak.token);
+	  };
 	
-	keycloak.onAuthSuccess = function () {
-	  _jsreportStudio2.default.setRequestHeader('Authorization', 'Bearer ' + keycloak.token);
+	  keycloak.init({ onLoad: 'login-required' }).success(function () {
+	    if (keycloak.authenticated) {
+	      _jsreportStudio2.default.setRequestHeader('Authorization', 'Bearer ' + keycloak.token);
+	      setInterval(function () {
+	        keycloak.updateToken(10).error(function () {
+	          return keycloak.logout();
+	        });
+	      }, 1000);
+	    } else {
+	      keycloak.login();
+	    }
+	  });
 	};
 	
-	keycloak.init({ onLoad: 'login-required' }).success(function () {
-	  if (keycloak.authenticated) {
-	    _jsreportStudio2.default.setRequestHeader('Authorization', 'Bearer ' + keycloak.token);
-	    setInterval(function () {
-	      keycloak.updateToken(10).error(function () {
-	        return keycloak.logout();
-	      });
-	    }, 1000);
-	  } else {
-	    keycloak.login();
-	  }
+	_jsreportStudio2.default.API.get('/auth/config').then(function (keycloakConfig) {
+	  init(new _keycloakJs2.default(keycloakConfig));
 	});
 
 /***/ },
