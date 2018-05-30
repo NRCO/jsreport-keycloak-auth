@@ -1,7 +1,7 @@
 import Studio from 'jsreport-studio'
 import Keycloak from 'keycloak-js'
 
-const keycloak = new Keycloak(window.Studio.extensions['custom-extension']['client-config'])
+const keycloak = new Keycloak(window.Studio.extensions['keycloak-auth']['client-config'])
 
 keycloak.onAuthSuccess = () => {
   Studio.setRequestHeader('Authorization', 'Bearer ' + keycloak.token)
