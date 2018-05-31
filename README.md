@@ -3,7 +3,7 @@
 # install
 
 ```
-npm install https://github.com/NRCO/jsreport-keycloak-auth.git
+npm install jsreport-keycloak-auth
 ```
 
 # configuration
