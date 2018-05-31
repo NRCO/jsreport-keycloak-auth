@@ -10,6 +10,12 @@ npm install jsreport-keycloak-auth
 
 ```json
 "extensions": {
+    "authentication":{
+        "enabled": false
+    },
+    "authorization": {
+        "enabled": false
+    },
     "keycloak-auth" : {
         "api-config": {
             "realm": "master",
