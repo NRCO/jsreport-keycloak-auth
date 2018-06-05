@@ -17,6 +17,9 @@ npm install jsreport-keycloak-auth
         "enabled": false
     },
     "keycloak-auth" : {
+        "session": {
+            "secret": "wgdkçà+&é*ù:djgixc_"
+        },
         "api-config": {
             "realm": "master",
             "bearer-only": true,

@@ -8,6 +8,12 @@
       'keycloak-auth': {
         'type': 'object',
         'properties': {
+          'session': {
+            'type': 'object',
+            'secret': {
+              'type': 'string'
+            }
+          },
           'api-config': {
             'type': 'object',
             'properties': {
