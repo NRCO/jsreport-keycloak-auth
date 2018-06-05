@@ -1,23 +1,31 @@
 import Studio from 'jsreport-studio'
 import Keycloak from 'keycloak-js'
 
-const init = (keycloak) => {
-  keycloak.onAuthSuccess = () => {
-    Studio.setRequestHeader('Authorization', 'Bearer ' + keycloak.token)
-  }
-
-  keycloak.init({ onLoad: 'login-required' }).success(() => {
-    if (keycloak.authenticated) {
-      Studio.setRequestHeader('Authorization', 'Bearer ' + keycloak.token)
-      setInterval(() => {
-        keycloak.updateToken(10).error(() => keycloak.logout())
-      }, 1000)
+const checkAuth = (keycloak) => {
+  return new Promise((resolve, reject) => {
+    if (!keycloak.token) {
+      keycloak.init({ onLoad: 'login-required' }).success(() => {
+        resolve(keycloak.token)
+      })
     } else {
-      keycloak.login()
+      keycloak.updateToken(5).success(() => {
+        resolve(keycloak.token)
+      })
     }
   })
 }
 
-Studio.API.get('/auth/config').then((keycloakConfig) => {
-  init(new Keycloak(keycloakConfig))
+Studio.initializeListeners.unshift(async () => {
+  let keycloakConfig = await Studio.API.get('/auth/config')
+  let keycloak = new Keycloak(keycloakConfig)
+  let token = await checkAuth(keycloak)
+  Studio.setRequestHeader('Authorization', 'Bearer ' + token)
+  for (let name in Studio.API) {
+    const ex = Studio.API[name]
+    Studio.API[name] = async (...args) => {
+      let token = await checkAuth(keycloak)
+      Studio.setRequestHeader('Authorization', 'Bearer ' + token)
+      return ex(...args)
+    }
+  }
 })
