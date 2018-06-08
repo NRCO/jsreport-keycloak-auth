@@ -45,19 +45,6 @@ npm i jsreport-keycloak-auth
 
 ```js
 [
-  'woff',
-  'ttf',
-  'js',
-  'css',
-  'png',
-  'jpg',
-  'gif'
-]
-```
-### extensions bypass
-
-```js
-[
   '/?studio=embed',
   '/css',
   '/img',
@@ -72,5 +59,18 @@ npm i jsreport-keycloak-auth
   '/odata/settings',
   '/auth/config',
   '/api/report'
+]
+```
+### extensions bypass
+
+```js
+[
+  'woff',
+  'ttf',
+  'js',
+  'css',
+  'png',
+  'jpg',
+  'gif'
 ]
 ```
