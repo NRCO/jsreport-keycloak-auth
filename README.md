@@ -2,8 +2,8 @@
 
 # install
 
-```
-npm install jsreport-keycloak-auth
+```sh
+npm i jsreport-keycloak-auth
 ```
 
 # configuration
@@ -21,6 +21,7 @@ npm install jsreport-keycloak-auth
             "secret": "wgdkçà+&é*ù:djgixc_"
         },
         "api-config": {
+            "role": "myclient-api:manage",
             "realm": "master",
             "bearer-only": true,
             "auth-server-url": "http://kc/auth",
@@ -28,6 +29,7 @@ npm install jsreport-keycloak-auth
             "resource": "myclient-api"
         },
         "client-config": {
+            "role": "myclient-api:manage",
             "url": "http://kc/auth/",
             "clientId": "myclient",
             "realm": "master"
@@ -39,23 +41,36 @@ npm install jsreport-keycloak-auth
 
 ## default values
 
-### allowed routes
+### routes bypass
 
-```json
+```js
 [
-  "/?studio=embed",
-  "/api/recipe",
-  "/css",
-  "/img",
-  "/js",
-  "/lib",
-  "/html-templates",
-  "/api/engine",
-  "/api/settings",
-  "/favicon.ico",
-  "/api/extensions",
-  "/odata/settings",
-  "/",
-  "auth/config"
+  'woff',
+  'ttf',
+  'js',
+  'css',
+  'png',
+  'jpg',
+  'gif'
+]
+```
+### extensions bypass
+
+```js
+[
+  '/?studio=embed',
+  '/css',
+  '/img',
+  '/js',
+  '/lib',
+  '/html-templates',
+  '/api/recipe',
+  '/api/engine',
+  '/api/settings',
+  '/favicon.ico',
+  '/api/extensions',
+  '/odata/settings',
+  '/auth/config',
+  '/api/report'
 ]
 ```

@@ -2,6 +2,10 @@
     "name": "jsreport-keycloak-auth",
     "version": "0.0.5",
     "description": "jsreport extension for keycloak security provider",
+    "repository": {
+        "type": "git",
+        "url": "git@github.com:NRCO/jsreport-keycloak-auth.git"
+    },
     "keywords": [
         "jsreport",
         "keycloak"

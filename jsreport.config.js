@@ -17,6 +17,7 @@
           'api-config': {
             'type': 'object',
             'properties': {
+              'role': { 'type': 'string' },
               'realm': { 'type': 'string' },
               'bearer-only': { 'type': 'boolean' },
               'auth-server-url': { 'type': 'string' },
@@ -27,6 +28,7 @@
           'client-config': {
             'type': 'object',
             'properties': {
+              'role': { 'type': 'string' },
               'url': { 'type': 'string' },
               'clientId': { 'type': 'string' },
               'realm': { 'type': 'string' }
