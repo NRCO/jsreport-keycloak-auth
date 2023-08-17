@@ -1,53 +1,53 @@
 {
-    "name": "jsreport-keycloak-auth",
-    "version": "0.0.6",
-    "description": "jsreport extension for keycloak security provider",
-    "repository": {
-        "type": "git",
-        "url": "git@github.com:NRCO/jsreport-keycloak-auth.git"
-    },
-    "keywords": [
-        "jsreport",
-        "keycloak"
+  "name": "jsreport-keycloak-auth",
+  "version": "0.0.6",
+  "description": "jsreport extension for keycloak security provider",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:NRCO/jsreport-keycloak-auth.git"
+  },
+  "keywords": [
+    "jsreport",
+    "keycloak"
+  ],
+  "scripts": {
+    "build": "jsreport-studio-build",
+    "test": "standard",
+    "start": "jsreport-studio-start --httpPort 5488",
+    "prepublish": "in-publish && jsreport-studio-build || not-in-publish"
+  },
+  "standard": {
+    "ignore": [
+      "main.js"
     ],
-    "scripts": {
-        "build": "jsreport-studio-build",
-        "test": "standard",
-        "start": "jsreport-studio-start --httpPort 5488",
-        "prepublish": "in-publish && jsreport-studio-build || not-in-publish"
-    },
-    "standard": {
-        "ignore": [
-            "main.js"
-        ],
-        "parser": "babel-eslint",
-        "env": {
-            "node": true,
-            "mocha": true,
-            "browser": true
-        }
-    },
-    "license": "MIT",
-    "dependencies": {
-        "express-session": "1.15.6",
-        "keycloak-connect": "4.0.0-beta.3",
-        "keycloak-js": "4.0.0-beta.3",
-        "in-publish": "2.0.0"
-    },
-    "author": "NRCO",
-    "devDependencies": {
-        "jsreport": "2.0.0",
-        "babel-eslint": "6.0.4",
-        "eslint": "2.11.1",
-        "eslint-config-standard-jsx": "1.2.1",
-        "eslint-plugin-babel": "3.2.0",
-        "jsreport-studio-dev": "1.0.2",
-        "standard": "7.1.2"
-    },
-    "files": [
-        "lib",
-        "studio",
-        "index.js",
-        "jsreport.config.js"
-    ]
+    "parser": "babel-eslint",
+    "env": {
+      "node": true,
+      "mocha": true,
+      "browser": true
+    }
+  },
+  "license": "MIT",
+  "dependencies": {
+    "express-session": "1.15.6",
+    "keycloak-connect": "20.0.5",
+    "keycloak-js": "20.0.5",
+    "in-publish": "2.0.0"
+  },
+  "author": "NRCO",
+  "devDependencies": {
+    "jsreport": "2.0.0",
+    "babel-eslint": "6.0.4",
+    "eslint": "2.11.1",
+    "eslint-config-standard-jsx": "1.2.1",
+    "eslint-plugin-babel": "3.2.0",
+    "jsreport-studio-dev": "1.6.0",
+    "standard": "7.1.2"
+  },
+  "files": [
+    "lib",
+    "studio",
+    "index.js",
+    "jsreport.config.js"
+  ]
 }
