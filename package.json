@@ -30,19 +30,15 @@
   "license": "MIT",
   "dependencies": {
     "express-session": "1.15.6",
-    "keycloak-connect": "20.0.5",
-    "keycloak-js": "20.0.5",
+    "keycloak-connect": "26.0.5",
+    "keycloak-js": "26.0.5",
     "in-publish": "2.0.0"
   },
   "author": "NRCO",
   "devDependencies": {
     "jsreport": "2.0.0",
     "babel-eslint": "6.0.4",
-    "eslint": "2.11.1",
-    "eslint-config-standard-jsx": "1.2.1",
-    "eslint-plugin-babel": "3.2.0",
-    "jsreport-studio-dev": "1.6.0",
-    "standard": "7.1.2"
+    "jsreport-studio-dev": "1.6.0"
   },
   "files": [
     "lib",
