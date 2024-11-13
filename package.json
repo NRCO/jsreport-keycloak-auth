@@ -1,6 +1,6 @@
 {
   "name": "jsreport-keycloak-auth",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "description": "jsreport extension for keycloak security provider",
   "repository": {
     "type": "git",
